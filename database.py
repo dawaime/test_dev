@@ -1,8 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+import os
+from dotenv import load_dotenv
 
-URL_DATABASE = 'postgresql://postgres:Dawai-2000@database-1.cdqn6jmbwvrx.eu-west-2.rds.amazonaws.com:5432/test_fastapi'
+load_dotenv()
+
+URL_DATABASE = os.environ.get("DATABASE_URL")
 
 engine = create_engine(URL_DATABASE)
 
